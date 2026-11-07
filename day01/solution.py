@@ -1,25 +1,13 @@
-"""Day 01 — Ingest & profile the CityPulse feed.
+import fnmatch
 
-Implement load_readings() and summarize(). See TASK.md for the spec.
-The grader imports this module and calls these functions by name — keep the signatures.
-"""
-import sys
-
-import pandas as pd
-
-
-def load_readings(path: str) -> pd.DataFrame:
-    # TODO: read the CSV, parse `ts` as datetime, drop rows with missing `value`,
-    # return sorted by `ts` ascending.
+def parse_oneline(text):
+    """Parse `git log --oneline` text into a list of (short_hash, subject) tuples, in order."""
     raise NotImplementedError
 
-
-def summarize(df: pd.DataFrame) -> dict:
-    # TODO: return {"n_rows", "n_sensors", "value_mean", "value_max"} per TASK.md.
+def is_ignored(patterns, path):
+    """Return True if `path` is covered by any .gitignore pattern."""
     raise NotImplementedError
 
-
-if __name__ == "__main__":
-    src = sys.argv[1] if len(sys.argv) > 1 else "sample.csv"
-    data = load_readings(src)
-    print(summarize(data))
+def count_covered(patterns, paths):
+    """Return how many of `paths` are ignored by the given patterns."""
+    raise NotImplementedError
